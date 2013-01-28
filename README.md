@@ -1,4 +1,1 @@
-black-arts
-==========
-
-Black Arts of POSIX
+SPELLBOOK.md
