@@ -45,7 +45,7 @@ RANLIB := $(NDK_TOOLCHAIN)/bin/arm-linux-androideabi-ranlib
 STRIP := $(NDK_TOOLCHAIN)/bin/arm-linux-androideabi-strip \
 	--strip-unneeded -R .note -R .comment
 
-CFLAGS = -DANDROID -I$(LOCAL)/include
+CFLAGS = -DANDROID -I$(LOCAL)/include -I../
 LDFLAGS = -L$(SYSROOT)/usr/lib -llog -L$(LOCAL)/lib
 
 # turn off gcc optmization on the native builds for now, to aid debugging

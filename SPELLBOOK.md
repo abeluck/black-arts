@@ -1,6 +1,6 @@
 # Black Magic
 
-## Spell 0x1
+## Spell 0x0
 
 Passing an application's STDIN fd to another process through an abstract unix
 domain socket, that the other process can subsequently read from.
