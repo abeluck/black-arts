@@ -1,6 +1,6 @@
 # Black Magic
 
-## Spell 0x0
+## Spell 0x0: STDIN Sleight of Hand
 
 Passing an application's STDIN fd to another process through an abstract unix
 domain socket, that the other process can subsequently read from.
@@ -10,7 +10,7 @@ domain socket, that the other process can subsequently read from.
 Linux:
 
     $ make
-    $ ./server < wizard
+    $ ./server < ../wizard
     (open another terminal)
     $ ./client
 
@@ -24,6 +24,25 @@ Android (after setting up your NDK environment):
     $ adb shell "/data/local/tmp/server < /sdcard/wizard"
     (open another terminal)
     $ adb shell /data/local/tmp/client
+
+## Spell 0x1: Switcharoo
+
+invoker.py invokes server and communicates to it via STDIN and STDOUT, but
+server doesn't have a flippin clue, so server opens a unix domain socket and
+waits connections from someone who does. client knows what's up, so server passes its
+STDIN and STDOUT fds to client, then exits.
+
+invoker is now communicating with client.
+
+## Incantations
+
+Linux:
+
+    $ make
+    $ python invoker.py < ../wizard
+    (open another terminal)
+    $ ./client
+
 
 # The Masters
 
